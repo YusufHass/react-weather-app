@@ -3,7 +3,12 @@ import { UilSearch, UilLocationPoint } from "@iconscout/react-unicons";
 import axios from "axios";
 import { LocalTimeAndLocations } from "./LocalTimeAndLocation";
 import { Forcast } from "./Forcast";
-export const SearchWithZipCode = ({ setQuery, timeAndLocation, units, setUnits }) => {
+export const SearchWithZipCode = ({
+  setQuery,
+  timeAndLocation,
+  units,
+  setUnits,
+}) => {
   const [zipCode, setZipCode] = useState("");
   const [state, setStateInfo] = useState("MD");
   const [error, setError] = useState(null);
@@ -39,17 +44,17 @@ export const SearchWithZipCode = ({ setQuery, timeAndLocation, units, setUnits }
     }
   };
 
-  const handleUnitsChange=(e)=>{
+  const handleUnitsChange = (e) => {
     //name is what we give the name of unit as metric or imperial
     //below with the °C or °F icons
-    const selectedUnit= e.currentTarget.name;
+    const selectedUnit = e.currentTarget.name;
     //if the current unit is not selected unit then
-    //setUnits as the selected unit which convert from 
+    //setUnits as the selected unit which convert from
     //degree centigrade to fahrenheit or vice versa
-    if(units!==selectedUnit){
-      setUnits(selectedUnit)
+    if (units !== selectedUnit) {
+      setUnits(selectedUnit);
     }
-  }
+  };
   return (
     <div>
       <div className="flex flex-row justify-center">
@@ -67,14 +72,12 @@ export const SearchWithZipCode = ({ setQuery, timeAndLocation, units, setUnits }
             className="text-white cursor-pointer justify-center transition scale-125 ease-out hover:scale-125"
             onClick={handleSearch}
           />
-
-          {error && <p style={{ color: "red" }}>{error}</p>}
           <div className="flex flex-row w-1/4 items-center justify-center">
             <button
               name="metric"
               // when we hover, the button will be bigger
               className="text-xl text-white font-light transition ease-out hover:scale-125"
-              //  when press the ℃, to convert 
+              //  when press the ℃, to convert
               onClick={handleUnitsChange}
             >
               ℃
@@ -93,12 +96,18 @@ export const SearchWithZipCode = ({ setQuery, timeAndLocation, units, setUnits }
           </div>
         </div>
       </div>
+      {error ? (
+        <div className="mx-auto max-w-screen-md my-6 mt-4 py-7 px-32 bg-gradient-to-br rounded-xl bg-red-200 h-fit shadow-x shadow-gray-400">
+          <p className="text-red-500 text-x">{error}</p>
+      </div>):(
       <LocalTimeAndLocations
         timeAndLocation={timeAndLocation}
         updatedState={state}
         updatedCity={city}
         zipCode={zipCode}
+  
       />
+      )}
     </div>
   );
 };
