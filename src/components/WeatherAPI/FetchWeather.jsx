@@ -5,20 +5,20 @@ import { useState } from "react";
 
 const BASE_URL= "https://api.openweathermap.org/data/2.5";
 const API_KEY = "e9b4da6d7e527138f4a4cc8608048631";
-export const getStateFromZipCode = async (zipCode) => {
-    // const locationResponse = await axios.get(
-    //   `https://api.zippopotam.us/us/${zipCode}`
-    // );
-    // const {country,places } = locationResponse.data;
-    // const currState=places?.[0]?.['state abbreviation'];
+// export const getStateFromZipCode = async (zipCode) => {
+//     // const locationResponse = await axios.get(
+//     //   `https://api.zippopotam.us/us/${zipCode}`
+//     // );
+//     // const {country,places } = locationResponse.data;
+//     // const currState=places?.[0]?.['state abbreviation'];
   
   
-  //   const zipCodeUrl = `https://api.zippopotam.us/us//${zipCode}`;
-  //   const zipCodeResponse = await fetch(zipCodeUrl);
-  //   const zipCodeData = await zipCodeResponse.json();
-  //   const city=zipCodeData.places?.[0]?.['place name'];
-  //   return zipCodeData.places?.[0]?.['state abbreviation'];
-}
+//   //   const zipCodeUrl = `https://api.zippopotam.us/us//${zipCode}`;
+//   //   const zipCodeResponse = await fetch(zipCodeUrl);
+//   //   const zipCodeData = await zipCodeResponse.json();
+//   //   const city=zipCodeData.places?.[0]?.['place name'];
+//   //   return zipCodeData.places?.[0]?.['state abbreviation'];
+// }
 
 const getWeatherData = (infoType, searchParam) => {
   const url = new URL(
@@ -117,9 +117,6 @@ const GetFormattedWeatherData = async (searchParams) => {
   //testing the formatted data displaying
   // return { ...formattedCurrentWeather, ...formattedForecastWeather, state};
   return { ...formattedCurrentWeather, ...formattedForecastWeather};
-
-
-  // return {...formattedCurrentWeather};
 };
 
 const formatToLocalTime = (

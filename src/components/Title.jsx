@@ -7,14 +7,12 @@ export const Title = () => {
   //   navigate("/");
   // }, [navigate]);
   return (
-    <Fragment>
     <div>
-      <Link to="/">
+      {/* <Link to="/"> */}
         <h1 className="text-gray-500 text-2xl font-bold">
           Accurate <span className="text-red-500">Weather</span>
         </h1>
-      </Link>
+      {/* </Link> */}
     </div>
-    </Fragment>
   );
 };

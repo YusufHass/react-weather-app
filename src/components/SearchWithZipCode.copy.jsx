@@ -7,6 +7,7 @@ export const SearchWithZipCode = ({setQuery,timeAndLocation}) => {
   const [state, setStateInfo] = useState("MD");
   const [error, setError] = useState(null);
   const [city, setCity] = useState("Silver Spring");
+
   const handleZipSearchClick = () => {
     if (zipCode !== "") {
       setQuery({ q:zipCode});
@@ -39,7 +40,6 @@ export const SearchWithZipCode = ({setQuery,timeAndLocation}) => {
     }
   };
   return (
-    <div>
     <div className="flex flex-row justify-center">
       <div className="flex flex-row items-center justify-center spa gap-x-4">
         <input
@@ -55,12 +55,9 @@ export const SearchWithZipCode = ({setQuery,timeAndLocation}) => {
           className="text-white cursor-pointer justify-center transition scale-125 ease-out hover:scale-125"
           onClick={handleSearch}
         />
-        
+        <LocalTimeAndLocations timeAndLocation={timeAndLocation} updatedState={state} updatedCity={city} zipCode={zipCode} />
       {error && <p style={{ color: "red" }}>{error}</p>}
       </div>
-      </div>
-      <LocalTimeAndLocations timeAndLocation={timeAndLocation} updatedState={state} updatedCity={city} zipCode={zipCode} />
-
         {/* <div className="flex flex-row w-1/4 items-center justify-center">
           <button
             name="metric"
