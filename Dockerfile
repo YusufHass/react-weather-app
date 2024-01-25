@@ -29,7 +29,7 @@ EXPOSE 3000
 CMD ["npm", "start"]
 
 # run the app using following command or Docker Desktop
-# docker run -p 3000:3000 weather-app
+# docker run -p 8089:3000 weather-app
 
 
 
