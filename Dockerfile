@@ -28,8 +28,17 @@ EXPOSE 3000
 # Command to run the application
 CMD ["npm", "start"]
 
-# run the app using following command or Docker Desktop
-# docker run -p 8089:3000 weather-app
+#STEPS FOR BUILDING AND RUNNING IN DOCKER
+
+#1. BUILDING USING THE FOLLOWING COMMAND. So building will create image in the Docker desktop
+      #docker build -t weather-app .  
+
+#2. RUNNING THE APPLICATION. we can run the app using the following command in terminal or open Docker Desktop and run it.from it
+     # docker run -p 8089:3000 weather-app
+
+     #** Remember on the [docker run -p 8089:3000 weather-app] "weather-app" is the application name and it should 
+     #in small letter
+
 
 
 
